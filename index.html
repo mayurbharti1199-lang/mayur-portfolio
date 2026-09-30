@@ -10,6 +10,143 @@
 @media(max-width:950px){.stage-panel{grid-template-columns:.85fr 1fr;gap:12px;padding:35px 28px;min-height:540px}.hero-right{grid-column:1/-1;display:grid;grid-template-columns:1fr 1.2fr;gap:12px;align-items:center}.hero-right .mono{grid-column:1/-1}.hero-right h2{margin:0}.hero-right p{margin:0}.hero-center{min-height:350px}.portrait-frame{height:340px;width:250px}.chip-one{right:2%}.navlinks{gap:13px}.navlinks a{font-size:.68rem}.skills{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:650px){.cursor-ring,.cursor-dot{display:none!important}.wrap{width:calc(100% - 30px)}.nav{padding:10px 12px 10px 16px}.menu{display:block}.pill{display:none}.navlinks{display:none;position:absolute;top:58px;left:0;right:0;padding:17px;border:1px solid var(--line);border-radius:22px;background:#111116f5;backdrop-filter:blur(20px);flex-direction:column;align-items:stretch;gap:0}.navlinks.open{display:flex}.navlinks a{padding:12px 8px;font-size:.85rem}.hero{padding:100px 0 58px;min-height:auto}.hero-stage{min-height:0}.stage-panel{transform:none;grid-template-columns:1fr;gap:8px;padding:27px 21px 25px;min-height:0}.hero-left{order:1}.hero h1{font-size:clamp(3.1rem,14vw,5rem);margin:17px 0}.hero-left p{max-width:320px;font-size:.78rem}.hero-center{order:2;min-height:315px;margin-top:0}.portrait-frame{height:310px;width:min(76%,255px);transform:none}.hero-right{order:3;grid-column:auto;display:block;padding:4px 2px}.hero-right .mono{margin-bottom:10px}.hero-right h2{font-size:1.15rem;margin:7px 0}.hero-right p{font-size:.78rem}.hero-actions{margin-top:15px}.floating-chip{font-size:.61rem;padding:10px 11px}.chip-one{top:8px;right:0}.chip-two{bottom:6px;left:0}.keyboard{display:none}.hero-caption{display:none}.section{padding:72px 0}.section-head{display:block;margin-bottom:27px}.intro{margin-top:16px}.about-grid,.projects,.timeline,.contact-grid{grid-template-columns:1fr}.about-mark{min-height:230px}.skills{grid-template-columns:repeat(2,minmax(0,1fr))}.skill{padding:17px;min-height:130px}.project-art{height:195px}.contact-card{padding:22px}.footer{font-size:.68rem}.cursor-glow{display:none}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none}}
+
+/* Alignment, readable text hierarchy, ticker strip, and polished contact feedback */
+.section-head{align-items:flex-end}
+.section-head>div{flex:0 1 auto;min-width:0}
+.section-head .intro{flex:0 1 410px;margin:0}
+.about-copy p{max-width:68ch;margin:0 0 15px}
+.about-copy p:last-child{margin-bottom:0}
+.project-info p{max-width:62ch}
+.skill h3,.project h3,.timeline-card h3,.contact-card h3{line-height:1.35}
+.contact-card{min-width:0}
+.contact-card p{max-width:60ch}
+.contact-link{line-height:1.5}
+.contact-link span:first-child{overflow-wrap:anywhere;word-break:break-word}
+.ticker{overflow:hidden;border-top:1px solid #ffffff12;border-bottom:1px solid #ffffff12;background:#0c0c11;padding:15px 0;margin-top:-24px}
+.ticker-track{display:flex;width:max-content;align-items:center;gap:28px;white-space:nowrap;animation:tickerMove 32s linear infinite;color:#d8d6e0;font: .68rem 'DM Mono',monospace;letter-spacing:.13em;text-transform:uppercase}
+.ticker-track span{display:inline-flex;align-items:center;gap:28px}
+.ticker-track b{color:var(--lime);font-size:1rem}
+.ticker:hover .ticker-track{animation-play-state:paused}
+@keyframes tickerMove{to{transform:translateX(-50%)}}
+.btn:focus-visible,.contact-link:focus-visible,.navlinks a:focus-visible{outline:2px solid var(--lime);outline-offset:4px}
+input,textarea{min-width:0;line-height:1.5}
+input::placeholder,textarea::placeholder{color:#777582}
+#contactForm .btn{min-height:48px}
+.toast{max-width:calc(100vw - 30px);text-align:center;line-height:1.5;border-radius:16px;box-shadow:0 16px 50px #0009}
+@media(max-width:650px){.section-head .intro{margin-top:16px}.ticker{margin-top:-12px}.ticker-track{font-size:.61rem;gap:18px}.ticker-track span{gap:18px}.about-copy{padding:23px}.about-copy p,.project p,.timeline-card p,.contact-card p{font-size:.82rem}.contact-link{font-size:.78rem}.section h2{line-height:1.02}}
+@media(prefers-reduced-motion:reduce){.ticker-track{animation:none;transform:none}}
+
+
+/* Terminal-style moving ticker */
+.ticker{overflow:hidden;border:1px solid #c9ff7030;border-radius:14px;background:linear-gradient(180deg,#101116,#08090c);padding:0;margin:8px auto 0;max-width:var(--max);box-shadow:0 12px 35px #0005;font-family:'DM Mono',monospace}
+.ticker::before{content:'●  ●  ●     MAYUR_TERMINAL  —  LIVE SKILLS FEED';display:block;padding:10px 14px;background:#171820;color:#a5a3af;font-size:.62rem;letter-spacing:.1em;border-bottom:1px solid #ffffff12}
+.ticker-track{display:flex;width:max-content;align-items:center;gap:28px;white-space:nowrap;animation:tickerMove 30s linear infinite;color:#c9ff70;font: .68rem 'DM Mono',monospace;letter-spacing:.08em;text-transform:uppercase;padding:14px 0}
+.ticker-track span{display:inline-flex;align-items:center;gap:28px}
+.ticker-track span::before{content:'>';color:#b7a7ff}
+.ticker-track b{color:#b7a7ff;font-size:1rem}
+.ticker:hover .ticker-track{animation-play-state:paused}
+.email-modal{position:fixed;inset:0;z-index:120;display:none;align-items:center;justify-content:center;padding:20px;background:#050508cc;backdrop-filter:blur(12px)}
+.email-modal.open{display:flex}
+.email-modal-card{width:min(100%,460px);padding:27px;border:1px solid #c9ff7040;border-radius:22px;background:linear-gradient(145deg,#1a1a22,#0b0b10);box-shadow:0 25px 90px #000b;text-align:left}
+.email-modal-icon{width:48px;height:48px;display:grid;place-items:center;border-radius:15px;background:#c9ff7018;border:1px solid #c9ff7040;color:var(--lime);font-size:1.4rem;margin-bottom:17px}
+.email-modal-card h3{font-size:1.35rem;letter-spacing:-.04em;margin:0 0 9px}
+.email-modal-card p{color:var(--muted);font-size:.85rem;line-height:1.7;margin:0 0 17px}
+.email-modal-address{overflow-wrap:anywhere;color:var(--lime);font-size:.82rem;margin:0 0 18px}
+.email-modal-actions{display:flex;gap:10px;flex-wrap:wrap}
+.email-modal-actions button{cursor:pointer}
+@media(max-width:650px){.ticker{margin:0 15px}.ticker::before{font-size:.55rem}.email-modal-card{padding:22px}}
+
+
+/* Additional responsive polish for laptop, tablet, and mobile */
+img,svg{max-width:100%}
+.wrap,.hero-stage,.ticker{min-width:0}
+.stage-panel,.about-grid,.projects,.skills,.timeline,.contact-grid{min-width:0}
+.hero-left,.hero-center,.hero-right,.project-info,.contact-card,.timeline-card{min-width:0}
+.contact-link span:first-child,.intro,.project p,.about-copy p{overflow-wrap:anywhere}
+@media (max-width:1100px){
+  .stage-panel{padding:34px 28px;gap:16px}
+  .hero h1{font-size:clamp(2.8rem,5.8vw,5.4rem)}
+  .portrait-frame{width:min(100%,285px);height:390px}
+  .navlinks{gap:14px}
+  .navlinks a{font-size:.7rem}
+}
+@media (max-width:800px){
+  .nav{width:calc(100% - 24px)}
+  .navlinks{gap:10px}
+  .stage-panel{grid-template-columns:minmax(0,.9fr) minmax(0,1fr);padding:30px 24px;transform:none;min-height:0}
+  .hero-center{min-height:330px}
+  .portrait-frame{height:330px;width:min(100%,250px)}
+  .hero-right{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:8px 16px;padding:10px 0 0}
+  .hero-right .mono{grid-column:1/-1;margin:0}
+  .hero-right h2{margin:0;font-size:1.2rem}
+  .hero-right p{margin:0}
+  .hero-actions{grid-column:1/-1;margin-top:8px}
+  .skills{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .contact-grid{grid-template-columns:1fr 1fr}
+  .section{padding:82px 0}
+}
+@media (max-width:650px){
+  .wrap{width:calc(100% - 30px)}
+  .hero{padding:96px 0 50px;min-height:0}
+  .hero-stage{min-height:0}
+  .stage-panel{display:flex;flex-direction:column;align-items:stretch;gap:16px;padding:24px 18px;min-height:0;border-radius:16px;transform:none!important}
+  .hero-left{order:1}
+  .hero h1{font-size:clamp(3rem,14vw,4.7rem);line-height:.88;letter-spacing:-.09em;margin:16px 0}
+  .hero-left p{max-width:100%;font-size:.82rem}
+  .hero-center{order:2;min-height:290px;width:100%}
+  .portrait-frame{height:290px;width:min(78%,245px);transform:none!important}
+  .hero-right{order:3;display:block;padding:0}
+  .hero-right .mono{margin-bottom:9px}
+  .hero-right h2{font-size:1.16rem;margin:7px 0 10px}
+  .hero-right p{font-size:.82rem;line-height:1.7}
+  .hero-actions{display:flex;gap:8px;margin-top:14px}
+  .btn{padding:11px 13px;font-size:.74rem}
+  .floating-chip{font-size:.58rem;padding:9px 10px;max-width:48%}
+  .chip-one{top:5px;right:0}.chip-two{bottom:3px;left:0}
+  .keyboard,.hero-caption{display:none}
+  .section{padding:66px 0}
+  .section-head{display:block;margin-bottom:25px}
+  .section h2{font-size:clamp(2.25rem,11vw,3.2rem);line-height:1.02}
+  .intro{font-size:.84rem;line-height:1.7;margin-top:14px}
+  .about-grid,.projects,.timeline,.contact-grid{grid-template-columns:minmax(0,1fr)}
+  .about-mark{min-height:220px;padding:23px}
+  .about-copy,.contact-card{padding:21px}
+  .projects{gap:14px}
+  .project{padding:12px}
+  .project-art{height:190px}
+  .skills{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .skill{padding:16px;min-height:122px}
+  .skill-icon{margin-bottom:14px}
+  .timeline-card{padding:20px;gap:12px}
+  .contact-link{gap:12px;font-size:.78rem;padding:14px 0}
+  .contact-link span:first-child{max-width:calc(100% - 30px)}
+  .ticker{margin:0 15px;border-radius:11px}
+  .ticker::before{font-size:.52rem;letter-spacing:.07em;padding:9px 10px}
+  .ticker-track{font-size:.59rem;gap:17px;padding:12px 0}
+  .ticker-track span{gap:17px}
+  .email-modal{padding:14px}
+  .email-modal-card{padding:21px;width:100%;max-height:calc(100dvh - 28px);overflow-y:auto}
+  .email-modal-card h3{font-size:1.2rem}
+  .email-modal-actions{display:grid;grid-template-columns:1fr}
+  .email-modal-actions .btn,.email-modal-actions button{width:100%}
+  .footer{gap:12px;font-size:.68rem}
+  .cursor-ring,.cursor-dot{display:none!important}
+}
+@media (max-width:380px){
+  .wrap{width:calc(100% - 24px)}
+  .nav{top:8px;padding:9px 11px}
+  .brand{font-size:1rem}
+  .hero{padding-top:82px}
+  .stage-panel{padding:20px 14px}
+  .hero h1{font-size:clamp(2.7rem,13vw,3.4rem)}
+  .hero-actions .btn{flex:1}
+  .skills{grid-template-columns:1fr 1fr}
+  .project-art{height:170px}
+  .contact-card{padding:17px}
+}
+@media (prefers-reduced-motion:reduce){.ticker-track{animation:none!important}.cursor-ring,.cursor-dot{display:none!important}}
+
 </style>
 </head>
 <body>
@@ -21,6 +158,7 @@
 <div class="hero-center"><div class="portrait-frame" id="portraitFrame"><div class="portrait-empty" id="portraitEmpty"><svg viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="40" cy="27" r="14"/><path d="M13 72c2-17 11-26 27-26s25 9 27 26"/></svg><strong>Your portrait goes here</strong><span>Add your photo later as <b>assets/mayur-photo.jpg</b></span></div><img id="portrait" alt="Portrait of Mayur Bharti"><div class="portrait-index">MB / 2026</div></div></div>
 <div class="hero-right"><div class="mono"> A Little Introduction</div><h2>Aspiring Developer &amp; Tech Enthusiast</h2><p>I enjoy learning by building projects and turning ideas into useful digital experiences. I’m continuously developing my skills in web technologies, programming, AI, and robotics.</p><div class="hero-actions"><a class="btn primary" href="#projects">View my work ↘</a><a class="btn ghost" href="#contact">Contact me ↗</a></div></div>
 </div><div class="floating-chip chip-one"><b>✦</b> Learn · Build · Repeat</div><div class="floating-chip chip-two">Currently exploring <b>AI + Web</b></div><div class="keyboard" aria-hidden="true"></div><div class="hero-caption mono"><span class="line"></span> Scroll to explore timeline</div></div></section>
+<div class="ticker" aria-label="Terminal-style skills ticker"><div class="ticker-track"><span>WEB DEVELOPMENT <b>✦</b> PROGRAMMING <b>✦</b> AI EXPLORATION <b>✦</b> ROBOTICS <b>✦</b> BUILD • LEARN • IMPROVE <b>✦</b></span><span aria-hidden="true">WEB DEVELOPMENT <b>✦</b> PROGRAMMING <b>✦</b> AI EXPLORATION <b>✦</b> ROBOTICS <b>✦</b> BUILD • LEARN • IMPROVE <b>✦</b></span></div></div>
 <section class="section" id="about"><div class="wrap"><div class="section-head reveal"><div><div class="kicker mono">02 / About me</div><h2>Curiosity into<br>creation.</h2></div><p class="intro">A little about how I think, what I’m learning, and the kind of things I want to build.</p></div><div class="about-grid"><div class="glass about-mark reveal"><div class="available"><i></i> Learning & building</div><h3>Small steps.<br>Real progress.</h3><div class="mark-bg">MB</div><div class="mono">Student · Developer · Curious mind</div></div><div class="glass about-copy reveal"><p>Hi, I’m <strong>Mayur Bharti</strong>. I enjoy exploring technology, solving problems, and creating projects that combine creativity with practical use.</p><p>I’m currently growing my skills in programming, web development, AI tools, and robotics. I believe the best way to learn is to build something, test it, and improve it.</p><p class="mono">This portfolio is a work in progress — just like my learning journey.</p></div></div></div></section>
 <section class="section" id="projects"><div class="wrap"><div class="section-head reveal"><div><div class="kicker mono">03 / Selected work</div><h2>Ideas made<br>tangible.</h2></div><p class="intro">A few projects and learning experiments. Update each card with your real progress, demos, and source-code links.</p></div><div class="projects">
 <article class="project reveal"><div class="project-art robot"><span class="art-label mono">01 — ROBOTICS / AI</span><div class="orb"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="12" y="18" width="40" height="32" rx="8"/><path d="M32 8v10M25 33h.1M39 33h.1M24 42h16M7 28h5M52 28h5M20 50v5M44 50v5"/><circle cx="32" cy="7" r="2"/></svg></div></div><div class="project-info"><div class="project-top"><h3>AI Voice Assistant Robot</h3><a class="project-link" href="#contact" aria-label="Ask about robot project">↗</a></div><p>A learning project exploring voice interaction, AI-generated responses, and basic robot movement using microcontroller hardware.</p><div class="tags"><span>Arduino</span><span>Voice AI</span><span>Robotics</span></div></div></article>
@@ -30,10 +168,13 @@
 </div></div></section>
 <section class="section" id="skills"><div class="wrap"><div class="section-head reveal"><div><div class="kicker mono">04 / Toolkit</div><h2>Things I’m<br>learning.</h2></div><p class="intro">Keep only the skills you can confidently explain, and add more as you gain hands-on experience.</p></div><div class="skills"><article class="skill reveal"><div class="skill-icon">⌘</div><h3>Programming</h3><p>Logic and fundamentals</p></article><article class="skill reveal"><div class="skill-icon">◇</div><h3>Web development</h3><p>HTML, CSS, JavaScript basics</p></article><article class="skill reveal"><div class="skill-icon">⌁</div><h3>AI tools</h3><p>AI workflows and APIs</p></article><article class="skill reveal"><div class="skill-icon">⌬</div><h3>Robotics</h3><p>Arduino, sensors, motors</p></article><article class="skill reveal"><div class="skill-icon">▤</div><h3>Productivity</h3><p>Office tools and reports</p></article><article class="skill reveal"><div class="skill-icon">✳</div><h3>UI & design</h3><p>Layout and typography</p></article><article class="skill reveal"><div class="skill-icon">↗</div><h3>Collaboration</h3><p>Communication and feedback</p></article><article class="skill reveal"><div class="skill-icon">∞</div><h3>Always learning</h3><p>Experiment, improve, repeat</p></article></div></div></section>
 <section class="section" id="journey"><div class="wrap"><div class="section-head reveal"><div><div class="kicker mono">05 / My journey</div><h2>Learning in<br>progress.</h2></div><p class="intro">Replace the sample education information with your actual course, college details, dates, and achievements before sharing professionally.</p></div><div class="timeline"><article class="timeline-card reveal"><div class="timeline-icon">⌂</div><div><div class="mono">Current</div><h3>College / Degree</h3><p>Currently studying. Add your course, college name, year of study, and expected graduation year here.</p></div></article><article class="timeline-card reveal"><div class="timeline-icon">✳</div><div><div class="mono">Ongoing</div><h3>Projects & practical learning</h3><p>Learning through classroom projects, technical practice, and experiments with software and hardware.</p></div></article></div></div></section>
-<section class="section" id="contact"><div class="wrap"><div class="section-head reveal"><div><div class="kicker mono">06 / Say hello</div><h2>Have an idea?<br>Let’s connect.</h2></div><p class="intro">For a project, collaboration, internship, or just exchanging ideas, send a message.</p></div><div class="contact-grid"><div class="contact-card reveal"><h3>Let’s make something useful.</h3><p>Connect with me about technology, learning, and creative projects. Replace the sample links with your real contact details.</p><div class="contact-links"><a class="contact-link" href="mailto:mayurbharti1199@gmail.com">
-  <span class="email-address">mayurbharti1199@gmail.com</span><span>↗</span>
-</a><a class="contact-link" href="https://www.linkedin.com/in/mayur-bharti-53860a31b/" target="_blank" rel="noreferrer"><span>LinkedIn</span><span>↗</span></a><a class="contact-link" href="https://github.com/mayurbharti199-lang" target="_blank" rel="noreferrer"><span>GitHub</span><span>↗</span></a><a class="contact-link" href="#" id="resumeBtn"><span>Download resume starter</span><span>↓</span></a></div></div><div class="contact-card reveal"><form id="contactForm"><label>Your name<input id="senderName" placeholder="What should I call you?" required></label><label>Your email<input id="senderEmail" type="email" placeholder="you@example.com" required></label><label>Message<textarea id="senderMessage" placeholder="Tell me a little about your idea..." required></textarea></label><button class="btn primary" type="submit">Prepare email ↗</button><p class="form-note">This form opens your email app with a draft. It does not send or store information on this website.</p></form></div></div></div></section>
+<section class="section" id="contact"><div class="wrap"><div class="section-head reveal"><div><div class="kicker mono">06 / Say hello</div><h2>Have an idea?<br>Let’s connect.</h2></div><p class="intro">For a project, collaboration, internship, or just exchanging ideas, send a message.</p></div><div class="contact-grid"><div class="contact-card reveal"><h3>Let’s make something useful.</h3><p>Connect with me about technology, learning, and creative projects. Replace the sample links with your real contact details.</p><div class="contact-links"><a class="contact-link" href="mailto:mayurbharti1199@gmail.com?subject=Hello%20Mayur">
+  <span class="email-address">mayurbharti1199@gmail.com</span><span>Email ↗</span>
+</a><button type="button" class="btn ghost" id="copyEmailBtn" style="margin-top:12px">Copy email address</button><a class="contact-link" href="https://www.linkedin.com/in/mayur-bharti-53860a31b/" target="_blank" rel="noreferrer"><span>LinkedIn</span><span>↗</span></a><a class="contact-link" href="https://github.com/mayurbharti199-lang" target="_blank" rel="noreferrer"><span>GitHub</span><span>↗</span></a><a class="contact-link" href="#" id="resumeBtn"><span>View / Print Professional Resume</span><span>↗</span></a></div></div><div class="contact-card reveal"><form id="contactForm"><label>Your name<input id="senderName" placeholder="What should I call you?" required></label><label>Your email<input id="senderEmail" type="email" placeholder="you@example.com" required></label><label>Message<textarea id="senderMessage" placeholder="Tell me a little about your idea..." required></textarea></label><button class="btn primary" type="submit">Continue to email ↗</button><p class="form-note">A confirmation will appear first. Your email app will open a draft; press Send there to actually send your message.</p></form></div></div></div></section>
 </main><footer class="wrap footer"><div><strong>mayur<span style="color:var(--lime)">.</span></strong> &nbsp; Made with curiosity.</div><div>© <span id="year"></span> Mayur Bharti · Built to keep growing</div><a href="#home">Back to top ↑</a></footer><div class="toast" id="toast" role="status">Done</div>
+<div class="email-modal" id="emailModal" role="dialog" aria-modal="true" aria-labelledby="emailModalTitle" aria-describedby="emailModalText">
+  <div class="email-modal-card"><div class="email-modal-icon">✉</div><h3 id="emailModalTitle">Your message is ready</h3><p id="emailModalText">We prepared your message. Your email app will open with the recipient, subject, and message filled in. You still need to press Send in your email app.</p><div class="email-modal-address">To: mayurbharti1199@gmail.com</div><div class="email-modal-actions"><button class="btn primary" type="button" id="openEmailBtn">Open email app ↗</button><button class="btn ghost" type="button" id="cancelEmailBtn">Not now</button></div></div>
+</div>
 <script>
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];$('#year').textContent=new Date().getFullYear();
 const menu=$('#menuBtn'),links=$('#navlinks');menu.addEventListener('click',()=>{const open=links.classList.toggle('open');menu.setAttribute('aria-expanded',String(open));menu.textContent=open?'×':'☰'});$$('#navlinks a').forEach(a=>a.addEventListener('click',()=>{links.classList.remove('open');menu.setAttribute('aria-expanded','false');menu.textContent='☰'}));
@@ -42,8 +183,17 @@ const glow=$('#cursorGlow');window.addEventListener('pointermove',e=>{if(glow){g
 // Premium custom cursor: a soft 3D-style ring and glowing core on desktop only.
 const cursorRing=$('#cursorRing'),cursorDot=$('#cursorDot');if(matchMedia('(hover:hover) and (pointer:fine)').matches&&!matchMedia('(prefers-reduced-motion: reduce)').matches){document.body.classList.add('cursor-ready');window.addEventListener('pointermove',e=>{cursorRing.style.left=e.clientX+'px';cursorRing.style.top=e.clientY+'px';cursorDot.style.left=e.clientX+'px';cursorDot.style.top=e.clientY+'px'},{passive:true});$$('a,button,input,textarea').forEach(el=>{el.addEventListener('pointerenter',()=>cursorRing.classList.add('hovering'));el.addEventListener('pointerleave',()=>cursorRing.classList.remove('hovering'))});}
 function toast(t){const el=$('#toast');el.textContent=t;el.classList.add('show');setTimeout(()=>el.classList.remove('show'),2400)}
-$('#contactForm').addEventListener('submit',e=>{e.preventDefault();const n=$('#senderName').value.trim(),em=$('#senderEmail').value.trim(),m=$('#senderMessage').value.trim();window.location.href='mailto:mayurbharti1199@gmail.com?subject='+encodeURIComponent('Portfolio message from '+n)+'&body='+encodeURIComponent('Name: '+n+'\nEmail: '+em+'\n\n'+m);toast('Opening your email app…')});
-$('#resumeBtn').addEventListener('click',e=>{e.preventDefault();const text=`MAYUR BHARTI\nStudent & Developer\n\nPROFILE\nStudent interested in software, web development, AI tools, and robotics.\n\nEDUCATION\n[Degree / Course] — [College Name]\n[Start year] – [Expected graduation]\n\nSKILLS\n[Add your confirmed programming languages and tools]\n\nPROJECTS\n1. AI Voice Assistant Robot — [Add status and contribution]\n2. Interactive Portfolio — Responsive personal website built with HTML, CSS, and JavaScript\n\nCONTACT\nEmail: mayurbharti1199@gmail.com\nGitHub: [your profile URL]\nLinkedIn: [your profile URL]\n\nReplace bracketed details before applying.`;const blob=new Blob([text],{type:'text/plain;charset=utf-8'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='Mayur-Bharti-Resume-Starter.txt';document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);toast('Resume starter downloaded')});
+let pendingMailto='';
+const emailModal=$('#emailModal');
+function closeEmailModal(){emailModal.classList.remove('open');}
+$('#contactForm').addEventListener('submit',e=>{e.preventDefault();const n=$('#senderName').value.trim(),em=$('#senderEmail').value.trim(),m=$('#senderMessage').value.trim();pendingMailto='mailto:mayurbharti1199@gmail.com?subject='+encodeURIComponent('Portfolio message from '+n)+'&body='+encodeURIComponent('Name: '+n+'\nEmail: '+em+'\n\n'+m);emailModal.classList.add('open');});
+$('#openEmailBtn').addEventListener('click',()=>{if(!pendingMailto)return;closeEmailModal();window.location.href=pendingMailto;toast('Opening your email app. Press Send there to send the message.');});
+$('#cancelEmailBtn').addEventListener('click',closeEmailModal);
+emailModal.addEventListener('click',e=>{if(e.target===emailModal)closeEmailModal();});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeEmailModal();});
+$('#copyEmailBtn').addEventListener('click',async()=>{const email='mayurbharti1199@gmail.com';try{await navigator.clipboard.writeText(email);toast('Email address copied.');}catch(err){const field=document.createElement('textarea');field.value=email;field.style.position='fixed';field.style.opacity='0';document.body.appendChild(field);field.select();const copied=document.execCommand('copy');field.remove();toast(copied?'Email address copied.':'Copy failed — select the email address manually.');}});
+$('#resumeBtn').addEventListener('click',e=>{e.preventDefault();const resume=`<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Mayur Bharti | Resume</title><style>*{box-sizing:border-box}body{margin:0;background:#e9e9ee;color:#20202a;font:14px/1.6 Arial,Helvetica,sans-serif}.sheet{max-width:850px;margin:28px auto;background:#fff;padding:48px 54px;box-shadow:0 18px 55px #16162220}.top{border-bottom:3px solid #a6d84e;padding-bottom:18px;margin-bottom:24px}.name{font-size:34px;line-height:1.1;letter-spacing:-1.2px;margin:0 0 8px;color:#15151b}.role{font-size:15px;font-weight:700;color:#526b25}.contact{font-size:12px;color:#51515d;margin-top:12px;overflow-wrap:anywhere}.section{margin:22px 0}.section h2{font-size:12px;letter-spacing:1.8px;text-transform:uppercase;color:#587329;border-bottom:1px solid #dfe5d3;padding-bottom:7px;margin:0 0 10px}.section p{margin:6px 0}.item{margin:12px 0}.item h3{font-size:14px;margin:0 0 3px}.muted{color:#5c5c67;font-size:12px}.skills{display:flex;flex-wrap:wrap;gap:7px}.skills span{border:1px solid #d9dfce;background:#f7faef;padding:5px 9px;border-radius:5px;font-size:12px}.actions{max-width:850px;margin:18px auto;display:flex;justify-content:flex-end;gap:10px}.actions button{border:0;border-radius:8px;padding:11px 16px;background:#c9ff70;font-weight:700;cursor:pointer}.actions .secondary{background:#fff;border:1px solid #ccc}a{color:#526b25;text-decoration:none;overflow-wrap:anywhere}@media(max-width:650px){.sheet{margin:0;padding:28px 22px}.name{font-size:29px}.actions{padding:12px;justify-content:center}}@media print{body{background:#fff}.sheet{margin:0;max-width:none;padding:0;box-shadow:none}.actions{display:none}@page{size:A4;margin:15mm}}</style></head><body><div class="actions"><button class="secondary" onclick="window.close()">Close</button><button onclick="window.print()">Print / Save as PDF</button></div><main class="sheet"><header class="top"><h1 class="name">Mayur Bharti</h1><div class="role">BCA Student · Aspiring Developer</div><div class="contact">Nagpur, Maharashtra, India · <a href="mailto:mayurbharti1199@gmail.com">mayurbharti1199@gmail.com</a> · 7066243836<br><a href="https://github.com/mayurbharti1199-lang">GitHub Profile</a> · <a href="https://www.linkedin.com/in/mayur-bharti-53860a31b/">LinkedIn Profile</a></div></header><section class="section"><h2>Professional Summary</h2><p>Third-year BCA student at KDK College of Engineering, expected to graduate in 2027. Interested in web development, programming, AI tools, and robotics. Building practical skills through personal and academic projects, with a focus on learning, problem-solving, and continuous improvement.</p></section><section class="section"><h2>Education</h2><div class="item"><h3>Bachelor of Computer Applications (BCA)</h3><div>KDK College of Engineering</div><div class="muted">Third year · Expected graduation: 2027</div></div></section><section class="section"><h2>Technical Skills</h2><div class="skills"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Python</span><span>C</span><span>Linux</span><span>Arduino / Robotics basics</span></div></section><section class="section"><h2>Projects</h2><div class="item"><h3>Personal Portfolio Website</h3><p>Designed and customized a responsive personal portfolio using HTML, CSS, and JavaScript, with interactive sections, mobile navigation, and visual effects.</p></div><div class="item"><h3>AI Voice Personal Assistant Robot</h3><p>Academic project exploring voice interaction, AI-generated responses, and basic robot movement using microcontroller hardware.</p></div><div class="item"><h3>Chatbot</h3><p>Personal learning project focused on conversational interaction. Add the exact tools, features, and implementation details before applying.</p></div></section><section class="section"><h2>Strengths & Learning</h2><p>Curiosity, willingness to learn, practical experimentation, and interest in building useful technology projects.</p></section><p class="muted">Review project descriptions and add any missing details before submitting this resume to employers.</p></main></body></html>`;const blob=new Blob([resume],{type:'text/html;charset=utf-8'}),url=URL.createObjectURL(blob),win=window.open(url,'_blank');if(!win){const a=document.createElement('a');a.href=url;a.download='Mayur-Bharti-Resume.html';document.body.appendChild(a);a.click();a.remove();toast('Resume downloaded — open it to print or save as PDF.');}else{toast('Resume opened — use Print / Save as PDF.');setTimeout(()=>URL.revokeObjectURL(url),60000);}});
+
 const img=$('#portrait');img.src='mayur-portrait.png';img.onload=()=>{img.style.display='block';$('#portraitEmpty').style.display='none'};img.onerror=()=>{img.style.display='none';$('#portraitEmpty').style.display='flex'};
 // Add a subtle 3D tilt to the portrait while preserving the existing hero design.
 const portraitFrame=$('#portraitFrame');if(portraitFrame&&matchMedia('(hover:hover) and (pointer:fine)').matches&&!matchMedia('(prefers-reduced-motion: reduce)').matches){portraitFrame.addEventListener('pointermove',e=>{const r=portraitFrame.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;portraitFrame.style.transform=`translateY(22px) rotateX(${-y*18}deg) rotateY(${x*24}deg) scale3d(1.045,1.045,1.045)`});portraitFrame.addEventListener('pointerleave',()=>{portraitFrame.style.transform='translateY(22px) rotateX(0deg) rotateY(0deg) scale3d(1,1,1)'})}
